@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+<head>
+    <meta charset="UTF-8">
+    <title>WC</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div>
+
+
+      <ui-view></ui-view>
+
+      <div class="control-sidebar-bg"></div>
+
+    </div>
+
+
+    <script src="/static/node_modules/angular/angular.min.js"></script>
+    <script src="/static/node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+<!--    <script src="/static/node_modules/angular-smart-table/dist/smart-table.min.js"></script>-->
+
+    <script src="/static/components/mainApp.js"></script>
+
+    <!-- Dashboard starts-->
+    <script src="/static/components/dashboard/dashboardApp.js"></script>
+    <script src="/static/components/dashboard/dashboardController/dashboardController.js"></script>
+    <script src="/static/components/dashboard/dashboardService/dashboardService.js"></script>
+    <!-- Dashboard ends-->
+
+</body>
+</html>

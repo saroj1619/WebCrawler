@@ -1,0 +1,75 @@
+<div class="col-sm-10 col-md-offset-1" >
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Web Crawler
+        <small>Dashboard</small>
+      </h1>
+
+
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-sm-10 pointer-links">
+                <form class="form-horizontal" name="dashboardForm">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="url">Enter URL</label>
+                        <div class="col-sm-10">
+                            <input type="text" required class="form-control" id="url" ng-model="dashboardScope.url">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="depth">Enter Depth</label>
+                        <div class="col-sm-2">
+                            <input type="number" required min="1" class="form-control" id="depth" ng-model="dashboardScope.depth">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary" ng-disabled="dashboardForm.$invalid" ng-click="dashboardScope.crawl(0)">Extract Urls</button>
+                            <button type="submit" class="btn btn-primary" ng-disabled="dashboardForm.$invalid" ng-click="dashboardScope.crawl(1)">Extract Images</button>
+
+                        </div>
+                        <br>
+
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-8" ng-if="dashboardScope.loadingMsg">
+                        {{dashboardScope.loadingMsg }}
+                    </div>
+
+                    <div class="col-sm-offset-2 col-sm-8" ng-if="dashboardScope.urls">
+                        <table class="table link/image y">
+                            <thead>
+                                <th>No. of Crawl</th>
+                                <th>URL</th>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="url_info in dashboardScope.urls | filter : dashboardScope.paginate">
+                                    <td ng-bind="dashboardScope.numPerPage *(dashboardScope.currentPage-1)+$index+1"></td>
+<!--                                    <td ng-bind="dashboardScope.url+url_info"></td>-->
+<!--                                    <td ng-bind="url_info"></td>-->
+                                    <td>
+                                        <table>
+                                            <tbody ng-repeat="urls in url_info">
+                                                <td> {{ urls }}</td>
+                                            </tbody>
+                                        </table>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                        <pagination total-items="dashboardScope.totalItems" ng-model="dashboardScope.currentPage"
+                            max-size="1" boundary-links="true"
+                            items-per-page="dashboardScope.numPerPage" class="pagination-sm">
+                        </pagination>
+                    </div>
+
+                </form>
+            </div>
+
+
+
+        </div>
+    </section>
+</div>
